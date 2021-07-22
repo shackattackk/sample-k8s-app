@@ -22,7 +22,7 @@
     - node_modules
     - npm-debug.log
 
-## Build the image
+## Build and run the image
 
 - Go to the directory that has the Dockerfile and run the ff:
   - docker build -t <image_tag> .
@@ -30,3 +30,5 @@
   - docker images
 - Run the image, use the -d flag to run it in detached mode
   - docker run -p 8000:8080 -d shackattackk/node-web-app
+- Verify the running container
+  - docker ps

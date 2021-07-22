@@ -1,0 +1,13 @@
+{
+"name": "docker_web_app",
+"description": "test node app on docker",
+"main": "index.js",
+"scripts":{
+    "start": "node src/index.js"
+},
+"dependencies": {
+    "express": "^4.16.1"
+}
+
+
+}

@@ -54,3 +54,7 @@
   ```
   docker ps
   ```
+- Push docker image to docker hub
+  ```
+  docker push shackattackk/node-web-app
+  ```

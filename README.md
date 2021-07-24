@@ -58,3 +58,31 @@
   ```
   docker push shackattackk/node-web-app
   ```
+
+## Deploy to a kubernetes cluster using docker for desktop
+
+- enable kubernetes in the docker for desktop settings. Settings > Kubernetes > Enable Kubernetes > Apply & restart
+- create a yaml file containing the kubernets definitions. In this project, it is named 'web.yml'
+  - Create two objects in the yaml file - deployment and nodeport service objects
+- Deploy application to kubernetes
+  ```
+  kubectl apply -f web.yml
+  ```
+- Expected output after running the command above
+  ```
+  deployment.apps/node-demo created
+  service/web-entrypoint created
+  ```
+- Verify if deployments and services are running
+  ```
+  kubectl get deployments
+  NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+  node-demo   1/1     1            1           9s
+  ```
+  ```
+  kubectl get services
+  NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+  kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP          15m
+  web-entrypoint   NodePort    10.100.180.142   <none>        8080:30001/TCP   8m37s
+  ```
+- Using a browser, visit localhost:30001 and verify if the application is accessible
